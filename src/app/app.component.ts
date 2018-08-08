@@ -20,6 +20,6 @@ export class AppComponent {
   }
 
   onFormSubmit = () => {
-    this.netlifyService.postForm(this.name, this.email, this.isInterestedInSpeaking).subscribe(() => console.log('success'));
+    this.netlifyService.postForm(this.name, this.email, this.isInterestedInSpeaking);
   }
 }
