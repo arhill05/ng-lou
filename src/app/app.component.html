@@ -1,4 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<form name="sign-up" netlify netlify-honeypot="honey-pot" hidden>
+    <input type="text" name="name"/>
+    <input type="email" name="email" />
+    <input type="checkbox" name="isInterestedInSpeaking" />
+</form>
 <div class="hero">
   <div class="hero__content">
     <img class="hero__logo" src="../assets/img/angular.svg" />
@@ -13,6 +18,7 @@
   <form #heroForm="ngForm" (ngSubmit)="onFormSubmit(heroForm)" id="sign-up-form" name="sign-up"
   method="POST" class="sign-up__form" netlify-honeypot="honey-pot" ngNativeValidate netlify>
     <h2 class="sign-up__header">Be the first to know about new meetups</h2>
+    <input type="hidden" name="form-name" value="sign-up" />
     <div class="sign-up__form-group sign-up__form-group--hidden">
       <label for="honeypot" class="sign-up__label sign-up__label--hidden">Don't fill this out if you're human:
         <input name="honey-pot" class="sign-up__input sign-up__input--hidden">
