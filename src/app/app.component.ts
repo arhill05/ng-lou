@@ -21,6 +21,9 @@ export class AppComponent {
 
   onFormSubmit = () => {
     this.netlifyService.postForm(this.name, this.email, this.isInterestedInSpeaking);
+    this.name = null;
+    this.email = null;
+    this.isInterestedInSpeaking = false;
     return false;
   }
 }

@@ -143,6 +143,20 @@
   }
 }
 
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 128px 0;
+  .about__content {
+    width: 35%;
+  }
+
+  .about__brand-text {
+    color: $primary-brand;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .hero {
     .hero__content {
@@ -165,6 +179,13 @@
     .sign-up__form {
       width: 100%;
       border-radius: 0;
+    }
+  }
+
+  .about {
+    padding: 32px;
+    .about__content {
+      width: unset;
     }
   }
 }
