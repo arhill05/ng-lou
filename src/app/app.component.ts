@@ -19,8 +19,7 @@ export class AppComponent {
     el.scrollIntoView({ behavior: 'smooth' });
   }
 
-  onFormSubmit = (f: any) => {
-    const formAction = document.querySelector('#sign-up-form').attributes['action'].value;
-    this.netlifyService.postForm(formAction, this.name, this.email, this.isInterestedInSpeaking).subscribe(() => console.log('success'));
+  onFormSubmit = () => {
+    this.netlifyService.postForm(this.name, this.email, this.isInterestedInSpeaking).subscribe(() => console.log('success'));
   }
 }
