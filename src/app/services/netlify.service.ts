@@ -17,10 +17,10 @@ export class NetlifyService {
       isInterestedInSpeaking
     });
     return this.http
-      .post('/', encodedBody, {
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-      })
-      .subscribe(res => {
+      .post('https://stupefied-bohr-e57e0f.netlify.com/', encodedBody, {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        responseType: 'text'
+      }).subscribe(res => {
         Swal(
           'Success!',
           'Your submission has been received. We will be in touch.',
