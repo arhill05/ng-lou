@@ -33,7 +33,7 @@ export class NetlifyService {
   private handleSuccess = () => {
     Swal(
       'Success!',
-      'Your submission has been received. We will be in touch.',
+      'Your submission has been received. We will send you an email when our meetup goes live. Thank you for your interest!',
       'success'
     );
   }
