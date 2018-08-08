@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NetlifyService } from './services/netlify.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'app';
+
+  name: string;
+  email: string;
+  isInterestedInSpeaking = false;
+  constructor(private netlifyService: NetlifyService) {
+
+  }
+  scrollToSignUp = () => {
+    const el = document.querySelector('#sign-up') as HTMLElement;
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+
+  onFormSubmit = (f: any) => {
+    const formAction = document.querySelector('#sign-up-form').attributes['action'].value;
+    this.netlifyService.postForm(formAction, this.name, this.email, this.isInterestedInSpeaking).subscribe(() => console.log('success'));
+  }
 }

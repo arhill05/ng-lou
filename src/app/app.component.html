@@ -1,20 +1,37 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="hero">
+  <div class="hero__content">
+    <img class="hero__logo" src="../assets/img/angular.svg" />
+    <div class="hero__text-container">
+      <h1 class="hero__text hero__text--primary">ngLou</h1>
+      <h2 class="hero__text hero__text--secondary">Angular in Louisville</h2>
+      <button class="hero__action-button" (click)="scrollToSignUp()">Sign Up</button>
+    </div>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
+<div id="sign-up" class="sign-up">
+  <form #heroForm="ngForm" (ngSubmit)="onFormSubmit(heroForm)" id="sign-up-form" name="sign-up"
+  method="POST" class="sign-up__form" netlify-honeypot="honey-pot" ngNativeValidate netlify>
+    <h2 class="sign-up__header">Be the first to know about new meetups</h2>
+    <div class="sign-up__form-group sign-up__form-group--hidden">
+      <label for="honeypot" class="sign-up__label sign-up__label--hidden">Don't fill this out if you're human:
+        <input name="honey-pot" class="sign-up__input sign-up__input--hidden">
+      </label>
+    </div>
+    <div class="sign-up__form-group">
+      <label class="sign-up__label" for="name">Name</label>
+      <input type="text" id="name" required name="name" [(ngModel)]="name" class="sign-up__text-input" />
+    </div>
+    <div class="sign-up__form-group">
+      <label class="sign-up__label" for="email">Email</label>
+      <input type="email" id="email" required name="email" [(ngModel)]="email" class="sign-up__text-input" />
+    </div>
+    <div class="sign-up__form-group sign-up__form-group--checkbox">
+      <input type="checkbox" name="isInterestedInSpeaking"  [(ngModel)]="isInterestedInSpeaking" class="sign-up__checkbox" />
+      <label class="sign-up__label sign-up__label--checkbox" for="isInterestedInSpeaking">I am interested in speaking about a topic related to Angular</label>
+    </div>
+    <button class="sign-up__submit-button" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
