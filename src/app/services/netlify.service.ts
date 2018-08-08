@@ -20,18 +20,29 @@ export class NetlifyService {
       .post('https://stupefied-bohr-e57e0f.netlify.com/', encodedBody, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         responseType: 'text'
-      }).subscribe(res => {
-        Swal(
-          'Success!',
-          'Your submission has been received. We will be in touch.',
-          'success'
-        );
-      });
+      })
+      .subscribe(res => this.handleSuccess(), err => this.handleError());
   }
 
   private encode = data => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&');
+  }
+
+  private handleSuccess = () => {
+    Swal(
+      'Success!',
+      'Your submission has been received. We will be in touch.',
+      'success'
+    );
+  }
+
+  private handleError = () => {
+    Swal(
+      'Error!',
+      'There was a problem submitting your information. Please try again later.',
+      'error'
+    );
   }
 }

@@ -131,3 +131,29 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .hero {
+    .hero__content {
+      flex-direction: column;
+      height: 100%;
+      width: unset;
+      align-items: center;
+      .hero__logo {
+        height: auto;
+        width: 75%;
+      }
+      .hero__text-container {
+        align-items: center;
+      }
+    }
+  }
+
+  .sign-up {
+    background-color: unset;
+    .sign-up__form {
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+}
