@@ -234,7 +234,7 @@
 
 @media screen and (max-width: 1168px) {
   .hero {
-    background-size: 125vw 40vh;
+    background-size: 120vw 50vh;
     background-repeat: no-repeat;
     flex-direction: column;
     justify-content: space-between;
@@ -247,7 +247,7 @@
       height: 100%;
       align-items: center;
       .hero__left {
-        height: 90%;
+        height: 80%;
         justify-content: space-between;
         width: 100%;
       }
