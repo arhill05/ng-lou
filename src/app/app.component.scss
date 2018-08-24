@@ -1,20 +1,19 @@
 @import '../variables';
 
 %primary-button {
+  @extend %text-shadow-1px;
   background-color: $primary-brand;
   border: none;
   border-radius: 8px;
-  box-shadow: 2px 2px 4px 2px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
   color: $light-text-color;
   cursor: pointer;
   font-size: 24px;
   padding: 16px 72px;
-  transition: background-color 0.1s ease-in-out, box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 0.1s ease-in-out,
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   width: fit-content;
-
-  &:focus {
-    outline: none;
-  }
 
   &:hover {
     background-color: darken($primary-brand, 8%);
@@ -27,45 +26,80 @@
   }
 }
 
+%text-shadow-1px {
+  text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
 .hero {
   align-items: center;
   display: flex;
-  height: 102vh;
+  height: 100vh;
   justify-content: center;
-  width: 100%;
+  background-image: url('../assets/img/hero-background.svg');
+  background-size: 120vw 120vh;
+
+  .hero__background-image {
+    height: 120vh;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 120vw;
+  }
 
   .hero__content {
     display: flex;
+    height: 80%;
     justify-content: center;
-    width: 50%;
-    height: 35%;
+    width: 80%;
+
+    .hero__left {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 30%;
+    }
+
+    .hero__right {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      width: 70%;
+    }
+
+    .hero__brand {
+      align-items: center;
+      display: flex;
+    }
+
     .hero__logo {
-      -webkit-filter: drop-shadow(2px 6px 4px rgba(0,0,0,0.2));
-      filter: drop-shadow(2px 6px 4px rgba(0,0,0,0.2));
-      height: 100%;
+      -webkit-filter: drop-shadow(2px 6px 4px rgba(0, 0, 0, 0.2));
+      filter: drop-shadow(2px 6px 4px rgba(0, 0, 0, 0.2));
+      height: 200px;
       width: auto;
     }
 
-    .hero__text-container {
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      .hero__text {
-        margin: 0;
-        font-weight: normal;
-      }
-      .hero__text.hero__text--primary {
-        color: $primary-brand;
-        font-size: 72px;
-      }
-      .hero__text.hero__text--secondary {
-        font-size: 36px;
-      }
+    .hero__illustration {
+      width: 60%;
+    }
 
-      .hero__action-button {
-        @extend %primary-button;
-        margin: 24px 0;
-      }
+    .hero__text {
+      margin: 0;
+      font-weight: normal;
+      @extend %text-shadow-1px;
+    }
+
+    .hero__text.hero__text--primary {
+      color: $primary-brand;
+      font-size: 72px;
+    }
+    .hero__text.hero__text--secondary {
+      font-size: 24px;
+    }
+
+    .hero__action-button {
+      @extend %primary-button;
+      margin: 24px 0;
     }
   }
 }
@@ -74,20 +108,42 @@
   align-items: center;
   background-color: $dark-background-color;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   height: 100vh;
-  width: 100%;
+
+  .sign-up__content {
+    align-items: center;
+    color: $light-text-color;
+    margin: 12%;
+    width: 30%;
+  }
+
+  .sign-up__form-container {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .sign-up__brand-text {
+    color: $primary-brand;
+  }
+
+  .sign-up__header {
+    color: $primary-brand;
+    font-size: 24px;
+  }
 
   .sign-up__form {
+    align-items: center;
     background-color: $light-background-color;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     padding: 32px;
     width: 20vw;
 
-    .sign-up__header {
+    .sign-up__form-header {
       font-size: 24px;
       margin: 0;
       text-align: center;
@@ -144,48 +200,98 @@
 }
 
 .about {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 128px 0;
-  .about__content {
-    width: 35%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  padding: 128px 96px;
+
+  .about__statistic {
+    font-size: 18px;
+    text-align: center;
   }
 
-  .about__brand-text {
+  .about__call-to-action {
+    grid-column: 1 / 4;
+    text-align: center;
+  }
+
+  .about__statistic-header {
+    @extend %text-shadow-1px;
     color: $primary-brand;
+    font-size: 36px;
+  }
+
+  .about__call-to-action-header {
+    @extend %text-shadow-1px;
+    color: $primary-brand;
+    font-size: 48px;
+  }
+
+  .about__action-button {
+    @extend %primary-button;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1168px) {
   .hero {
+    background-size: 125vw 40vh;
+    background-repeat: no-repeat;
+    flex-direction: column;
+    justify-content: space-between;
     .hero__content {
+      .hero__brand {
+        flex-direction: column;
+        margin: 32px 0;
+      }
       flex-direction: column;
       height: 100%;
-      width: unset;
       align-items: center;
+      .hero__left {
+        height: 90%;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .hero__right {
+        display: none;
+      }
       .hero__logo {
         height: auto;
         width: 75%;
       }
-      .hero__text-container {
-        align-items: center;
-      }
-    }
-  }
-
-  .sign-up {
-    background-color: unset;
-    .sign-up__form {
-      width: 100%;
-      border-radius: 0;
     }
   }
 
   .about {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
+    margin: 128px 0;
+    padding: unset;
+
+    .about__call-to-action {
+      grid-column: unset;
+      text-align: center;
+    }
+  }
+
+  .sign-up {
+    background-color: $dark-background-color;
+    flex-direction: column;
+    height: unset;
     padding: 32px;
-    .about__content {
+
+    .sign-up__content {
+      margin: unset;
       width: unset;
+      padding: 16px;
+    }
+
+    .sign-up__form-container {
+      margin: 64px 0;
+      width: unset;
+    }
+    .sign-up__form {
+      width: 100%;
     }
   }
 }

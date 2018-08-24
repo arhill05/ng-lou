@@ -1,61 +1,74 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <section class="hero">
   <div class="hero__content">
-    <img class="hero__logo" src="../assets/img/angular.svg" />
-    <div class="hero__text-container">
-      <h1 class="hero__text hero__text--primary">ngLou</h1>
-      <h2 class="hero__text hero__text--secondary">Angular in Louisville</h2>
+    <div class="hero__left">
+      <div class="hero__brand">
+        <img class="hero__logo" src="../assets/img/angular.svg" />
+        <h1 class="hero__text hero__text--primary">ngLou</h1>
+      </div>
+      <p class="hero__text hero__text--secondary">Monthly meetups to discuss all things Angular. Come hear some awesome speakers
+        and network with people who are just as passionate about Angular as you are.</p>
       <button class="hero__action-button" (click)="scrollToSignUp()">Sign Up</button>
+    </div>
+    <div class="hero__right">
+      <img src="../assets/img/hero-illustration.svg" alt="" class="hero__illustration">
     </div>
   </div>
 </section>
 <section class="about">
-  <div class="about__content">
-    <h2>Angular is a prominent technology</h2>
-    <p>The Angular JavaScript framework is a very prominent technology, both in Louisville and around the world. According to
-      the
-      <a href="../assets/doc/LouTech Survey 2017 - Final (corrected).pdf">Louisville Tech 2017 Developer Survey</a>, over 14% of developers in Louisville use AngularJS, and almost 10.5% of developers
-      use Angular. On a much larger scale, almost 37% (out of
-      <em>51,620 responses!</em>) of the respondents to the
-      <a href="https://insights.stackoverflow.com/survey/2018/#technology-frameworks-libraries-and-tools">Stack Overflow Developer Survey 2018</a>
-      stated they use Angular.
-    </p>
-    <p>These numbers are significant. Considering the amount of people who use Angular or AngularJS in Louisville, it makes
-      sense for those people to have a common place to come and share their knowledge, passions, and experiments with each
-      other.
-      <strong>
-        <span class="about__brand-text">ngLou</span> aims to fill that need by hosting monthly meetups with speakers discussing relevant topics and the opportunity
-        to network with like-minded developers.</strong>
-    </p>
-    <p>If you're interested, sign up below to be notified of when our meetup goes live. If you're willing to speak on a relevant topic, please indicate that in your submission
-      and we'll be in touch to get started.
-    </p>
+  <div class="about__statistic">
+    <h3 class="about__statistic-header">1 in 10</h3>
+    <p>developers in Louisville use Angular</p>
+  </div>
+  <div class="about__statistic">
+    <h3 class="about__statistic-header">1 in 6</h3>
+    <p>developers in Louisville use AngularJS</p>
+  </div>
+  <div class="about__statistic">
+    <h3 class="about__statistic-header">1 in 3</h3>
+    <p>developers in the world use Angular</p>
+  </div>
+  <div class=" about__call-to-action">
+    <h2 class="about__call-to-action-header">Only 1 meetup in Louisville for Angular</h2>
+    <button class="about__action-button" (click)="scrollToSignUp()">Sign Up</button>
   </div>
 </section>
 <section id="sign-up" class="sign-up">
-  <form #heroForm="ngForm" (ngSubmit)="onFormSubmit()" id="sign-up-form" name="sign-up" method="POST" class="sign-up__form"
-    netlify-honeypot="honey-pot" ngNativeValidate netlify>
-    <h2 class="sign-up__header">Stay informed about the next ngLou meetup</h2>
-    <input type="hidden" name="form-name" value="sign-up" />
-    <div class="sign-up__form-group sign-up__form-group--hidden">
-      <label for="honeypot" class="sign-up__label sign-up__label--hidden">Don't fill this out if you're human:
-        <input name="honey-pot" class="sign-up__input sign-up__input--hidden">
-      </label>
-    </div>
-    <div class="sign-up__form-group">
-      <label class="sign-up__label" for="name">Name</label>
-      <input type="text" id="name" required name="name" [(ngModel)]="name" class="sign-up__text-input" />
-    </div>
-    <div class="sign-up__form-group">
-      <label class="sign-up__label" for="email">Email</label>
-      <input type="email" id="email" required name="email" [(ngModel)]="email" class="sign-up__text-input" />
-    </div>
-    <div class="sign-up__form-group sign-up__form-group--checkbox">
-      <input type="checkbox" name="isInterestedInSpeaking" [(ngModel)]="isInterestedInSpeaking" class="sign-up__checkbox" />
-      <label class="sign-up__label sign-up__label--checkbox" for="isInterestedInSpeaking">I am interested in speaking about a topic related to Angular</label>
-    </div>
-    <button class="sign-up__submit-button" type="submit">
-      Submit
-    </button>
-  </form>
+  <div class="sign-up__content">
+    <h2 class="sign-up__header">Angular is a prominent technology</h2>
+    <p>
+      Considering the amount of people who use Angular or AngularJS in Louisville, it makes sense for those people to have a common
+      place to come and share their knowledge, passions, and experiments with each other. <strong><span class="sign-up__brand-text">ngLou</span>
+        aims to fill that need by hosting monthly meetups with speakers discussing relevant topics and the opportunity to network
+        with like-minded developers.</strong>
+    </p>
+  </div>
+  <div class="sign-up__form-container">
+    <form #heroForm="ngForm" (ngSubmit)="onFormSubmit()" id="sign-up-form" name="sign-up" method="POST" class="sign-up__form"
+      netlify-honeypot="honey-pot" ngNativeValidate netlify>
+      <h2 class="sign-up__form-header">Stay informed about the next ngLou meetup</h2>
+      <input type="hidden" name="form-name" value="sign-up" />
+      <div class="sign-up__form-group sign-up__form-group--hidden">
+        <label for="honeypot" class="sign-up__label sign-up__label--hidden">Don't fill this out if you're human:
+          <input name="honey-pot" class="sign-up__input sign-up__input--hidden">
+        </label>
+      </div>
+      <div class="sign-up__form-group">
+        <label class="sign-up__label" for="name">Name</label>
+        <input type="text" id="name" required name="name" [(ngModel)]="name" class="sign-up__text-input" />
+      </div>
+      <div class="sign-up__form-group">
+        <label class="sign-up__label" for="email">Email</label>
+        <input type="email" id="email" required name="email" [(ngModel)]="email" class="sign-up__text-input" />
+      </div>
+      <div class="sign-up__form-group sign-up__form-group--checkbox">
+        <input type="checkbox" name="isInterestedInSpeaking" [(ngModel)]="isInterestedInSpeaking" class="sign-up__checkbox" />
+        <label class="sign-up__label sign-up__label--checkbox" for="isInterestedInSpeaking">I am interested in speaking about
+          a topic related to Angular</label>
+      </div>
+      <button class="sign-up__submit-button" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
 </section>
